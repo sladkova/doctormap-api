@@ -17,26 +17,36 @@ HOST: http://polls.apiblueprint.org/
 
             {
                 "id": "9",
-                "user_login": "Ayaz",
-                "user_email": "ayaz.abushov1@gmail.com",
-                "display_name": "Ayaz"
+                "phone": "+380681234567"
+                "name": "Test User",
+                "birthdate": "1990-01-01"
+                "gender": "testuser@gmail.com",
+                "city": "Запорожье",
+                "access_token": "123123123",
             }
+
+## User Registration [/users/register]
 
 ### Register new user [POST]
 
 + Request (application/json)
 
         {
-            "user_login": "newuser",
-            "user_email": "newuser@gmail.com",
-            "display_name": "New User"
+            "phone": "+380681234567"
+            "name": "New User",
+            "birthdate": "1980-01-01"
+            "gender": "newuser@gmail.com",
+            "city": "Запорожье"
         }
 
-+ Response 201 (application/json)
++ Response 200 (application/json)
 
         {
             "id": 123,
-            "user_login": "newuser",
-            "user_email": "newuser@gmail.com",
-            "display_name": "New User"
+            "phone": "+380681234567"
+            "name": "New User",
+            "birthdate": "1980-01-01"
+            "gender": "newuser@gmail.com",
+            "city": "Запорожье",
+            "access_token": "123123123",
         }

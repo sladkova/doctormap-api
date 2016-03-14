@@ -45,14 +45,18 @@ HOST: http://polls.apiblueprint.org/
 + Response 200 (application/json)
 
         {
-            "id": 123,
-            "phone": "+380681234567"
-            "name": "New User",
-            "birthdate": "1980-01-01"
-            "gender": "newuser@gmail.com",
-            "city": "Запорожье",
-            "access_token": "123123123",
-            "account_type": "1"
+            "status": 1,
+            "data": {
+                "id": "123",
+                "phone": "+380681234567"
+                "name": "New User",
+                "birthdate": "1980-01-01"
+                "gender": true,
+                "city": "Запорожье",
+                "region": "Запорожская область",
+                "card_number": "1234 1234 1234 1234"
+                "account_type": "1"
+            }
         }
         
 ## User Updating [/users/setAccountType]

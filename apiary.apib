@@ -23,6 +23,7 @@ HOST: http://polls.apiblueprint.org/
                 "gender": "testuser@gmail.com",
                 "city": "Запорожье",
                 "access_token": "123123123",
+                "account_type": "1"
             }
 
 ## User Registration [/users/register]
@@ -35,8 +36,10 @@ HOST: http://polls.apiblueprint.org/
             "phone": "+380681234567"
             "name": "New User",
             "birthdate": "1980-01-01"
-            "gender": "newuser@gmail.com",
-            "city": "Запорожье"
+            "gender": true,
+            "city": "Запорожье",
+            "region": "Запорожская область",
+            "card_number": "1234 1234 1234 1234"
         }
 
 + Response 200 (application/json)
@@ -49,4 +52,108 @@ HOST: http://polls.apiblueprint.org/
             "gender": "newuser@gmail.com",
             "city": "Запорожье",
             "access_token": "123123123",
+            "account_type": "1"
         }
+        
+## User Updating [/users/setAccountType]
+
+### Set Account Type [POST]
+
++ Request (application/json)
+
+        {
+            "id": "123",
+            "type": "1"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "id": "123",
+            "phone": "+380681234567"
+            "name": "New User",
+            "birthdate": "1980-01-01"
+            "gender": "newuser@gmail.com",
+            "city": "Запорожье",
+            "access_token": "123123123",
+            "account_type": "1"
+        }
+        
+## Promo Categories Collection [/promoCategories]
+
+### Get all categories [GET]
+
++ Request (application/json)
+
+        {
+           
+        }
+
++ Response 200 (application/json)
+        [
+            {
+                "id": "1",
+                "name": "Endirimler"
+            },
+            {
+                "id": "2",
+                "name": "Aksiyalar"
+            },
+            {
+                "id": "3",
+                "name": "Hədiyyələr"
+            },
+            {
+                "id": "4",
+                "name": "Elanlar"
+            },
+            {
+                "id": "5",
+                "name": "Məqalələr"
+            },
+            {
+                "id": "6",
+                "name": "Forum"
+            },
+            {
+                "id": "7",
+                "name": "Administrator online"
+            }
+        ]
+          
+## Doctor's Categories Collection [/doctorCategories]
+
+### Get all doctor's categories [GET]
+
++ Request (application/json)
+
+        {
+           
+        }
+
++ Response 200 (application/json)
+        [
+            {
+                "id": "1",
+                "name": "Андролог",
+                "count": "5"
+            },
+            {
+                "id": "2",
+                "name": "Диетолог"
+                "count: "12"
+            },
+            {
+                "id": "3",
+                "name": "Аллерголог"
+            },
+            {
+                "id": "4",
+                "name": "Гематолог"
+            },
+            {
+                "id": "5",
+                "name": "Эндакринолог"
+            },
+           
+          ]

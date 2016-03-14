@@ -21,20 +21,34 @@ HOST: http://polls.apiblueprint.org/
 
 + Response 200 (application/json)
 
-            {
-                "id": "9",
-                "phone": "+380681234567"
-                "name": "Test User",
-                "birthdate": "1990-01-01"
-                "gender": "testuser@gmail.com",
-                "city": "Запорожье",
-                "access_token": "123123123",
-                "account_type": "1"
-            }
+        {
+            "id": "9",
+            "phone": "+380681234567"
+            "name": "Test User",
+            "birthdate": "1990-01-01"
+            "gender": "testuser@gmail.com",
+            "city": "Запорожье",
+            "access_token": "123123123",
+            "account_type": "1"
+        }
 
 ## User Registration [/users/register]
 
 ### Register new user [POST]
++ phone (String) - required
++ name (String) - required
++ birthdate (String) - required
+
+        yyyy-mm-dd
+
++ gender (Bool) - required
+
+        female - 0
+        male - 1
+            
++ city (String) - required
++ region (String) - required
++ card_number (String) - required
 
 + Request (application/json)
 
@@ -100,6 +114,7 @@ HOST: http://polls.apiblueprint.org/
         }
 
 + Response 200 (application/json)
+
         [
             {
                 "id": "1",
@@ -142,6 +157,7 @@ HOST: http://polls.apiblueprint.org/
         }
 
 + Response 200 (application/json)
+
         [
             {
                 "id": "1",

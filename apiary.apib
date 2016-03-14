@@ -181,5 +181,25 @@ HOST: http://polls.apiblueprint.org/
                 "id": "5",
                 "name": "Эндакринолог"
             },
-           
           ]
+          
+## SMS API [/sms]
+
+### Invite friend by SMS [POST]
+
++ Request (application/json)
+
+        {
+            "action": "invite_friend"
+            "data": {
+                "phone": "+380681234567"
+            },
+            "access_token": "123123123"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": "OK"
+        }

@@ -203,3 +203,23 @@ HOST: http://polls.apiblueprint.org/
             "status": 1,
             "data": "OK"
         }
+        
+### Check user SMS code [POST]
+
++ Request (application/json)
+
+        {
+            "action": "check_code"
+            "data": {
+                "phone": "+380681234567",
+                "code": "12-12-12"
+            },
+            "access_token": "123123123"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": true
+        }

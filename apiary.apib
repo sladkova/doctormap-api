@@ -48,7 +48,6 @@ HOST: http://polls.apiblueprint.org/
             
 + city (String) - required
 + region (String) - required
-+ card_number (String) - required
 
 + Request (application/json)
 
@@ -58,8 +57,34 @@ HOST: http://polls.apiblueprint.org/
             "birthdate": "1980-01-01"
             "gender": true,
             "city": "Запорожье",
-            "region": "Запорожская область",
-            "card_number": "1234 1234 1234 1234"
+            "region": "Запорожская область"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": {
+                "id": "123",
+                "phone": "+380681234567"
+                "name": "New User",
+                "birthdate": "1980-01-01"
+                "gender": true,
+                "city": "Запорожье",
+                "region": "Запорожская область",
+                "card_number": "1234 1234 1234 1234",
+                "account_type": "1"
+            }
+        }
+        
+## User Registration [/users/signin]
+
+### Register new user [POST]
+
++ Request (application/json)
+
+        {
+            "phone": "+994507505555"
         }
 
 + Response 200 (application/json)
@@ -201,7 +226,9 @@ HOST: http://polls.apiblueprint.org/
 
         {
             "status": 1,
-            "data": "OK"
+            "data": {
+                "account_type": 0
+            }
         }
         
 ### Check user SMS code [POST]
@@ -221,5 +248,7 @@ HOST: http://polls.apiblueprint.org/
 
         {
             "status": 1,
-            "data": true
+            "data": {
+                "account_type": 0
+            }
         }

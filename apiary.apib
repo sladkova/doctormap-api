@@ -16,20 +16,21 @@ HOST: http://polls.apiblueprint.org/
 + Request (application/json)
 
         {
-            "id": "9",
+            "id": "9"
         }
 
 + Response 200 (application/json)
 
         {
             "id": "9",
-            "phone": "+380681234567"
+            "phone": "+380681234567",
             "name": "Test User",
-            "birthdate": "1990-01-01"
+            "birthdate": "1990-01-01",
             "gender": "testuser@gmail.com",
             "city": "Запорожье",
             "access_token": "123123123",
-            "account_type": "1"
+            "account_type": "1",
+            "card_number": "1234-1234-1234-1234"
         }
 
 ## User Registration [/users/register]
@@ -93,13 +94,13 @@ HOST: http://polls.apiblueprint.org/
             "status": 1,
             "data": {
                 "id": "123",
-                "phone": "+380681234567"
+                "phone": "+380681234567",
                 "name": "New User",
-                "birthdate": "1980-01-01"
+                "birthdate": "1980-01-01",
                 "gender": true,
                 "city": "Запорожье",
                 "region": "Запорожская область",
-                "card_number": "1234 1234 1234 1234"
+                "card_number": "1234 1234 1234 1234",
                 "account_type": "1"
             }
         }
@@ -119,9 +120,9 @@ HOST: http://polls.apiblueprint.org/
 
         {
             "id": "123",
-            "phone": "+380681234567"
+            "phone": "+380681234567",
             "name": "New User",
-            "birthdate": "1980-01-01"
+            "birthdate": "1980-01-01",
             "gender": "newuser@gmail.com",
             "city": "Запорожье",
             "access_token": "123123123",
@@ -191,7 +192,7 @@ HOST: http://polls.apiblueprint.org/
             },
             {
                 "id": "2",
-                "name": "Диетолог"
+                "name": "Диетолог",
                 "count: "12"
             },
             {
@@ -215,7 +216,7 @@ HOST: http://polls.apiblueprint.org/
 + Request (application/json)
 
         {
-            "action": "invite_friend"
+            "action": "invite_friend",
             "data": {
                 "phone": "+380681234567"
             },
@@ -236,7 +237,7 @@ HOST: http://polls.apiblueprint.org/
 + Request (application/json)
 
         {
-            "action": "check_code"
+            "action": "check_code",
             "data": {
                 "phone": "+380681234567",
                 "code": "12-12-12"

@@ -78,9 +78,9 @@ HOST: http://polls.apiblueprint.org/
             }
         }
         
-## User Registration [/users/signin]
+## User Sign in [/users/signin]
 
-### Register new user [POST]
+### User Sign in [POST]
 
 + Request (application/json)
 
@@ -110,11 +110,17 @@ HOST: http://polls.apiblueprint.org/
 ### Set Account Type [POST]
 
 + Request (application/json)
+        
+    + Headers
 
-        {
-            "id": "123",
-            "type": "1"
-        }
+            access_token: "123123123"
+   
+    + Body
+  
+            {
+                "id": "123",
+                "type": "1"
+            }
 
 + Response 200 (application/json)
 
@@ -210,13 +216,16 @@ HOST: http://polls.apiblueprint.org/
           ]
           
 ## SMS API [/sms]
+    action:
+    + 1 - invite_friend
+    + 2 - check_code
 
 ### Invite friend by SMS [POST]
 
 + Request (application/json)
 
         {
-            "action": "invite_friend",
+            "action": "1",
             "data": {
                 "phone": "+380681234567"
             },
@@ -237,7 +246,7 @@ HOST: http://polls.apiblueprint.org/
 + Request (application/json)
 
         {
-            "action": "check_code",
+            "action": "2",
             "data": {
                 "phone": "+380681234567",
                 "code": "12-12-12"

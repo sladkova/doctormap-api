@@ -136,15 +136,18 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 + Response 200 (application/json)
 
         {
-            "id": "123",
-            "phone": "+380681234567",
-            "name": "Test User",
-            "birthdate": "1990-01-01",
-            "gender": 1,
-            "city": "Запорожье",
-            "region": "Космический"
-            "account_type": "1",
-            "card_number": "1234-1234-1234-1234"
+            "status": 1,
+            "data": {
+                "id": "123",
+                "phone": "+380681234567",
+                "name": "Test User",
+                "birthdate": "1990-01-01",
+                "gender": 1,
+                "city": "Запорожье",
+                "region": "Космический"
+                "account_type": "1",
+                "card_number": "1234-1234-1234-1234"
+            }
         }
         
 ## User Updating [/users/setAccountType]

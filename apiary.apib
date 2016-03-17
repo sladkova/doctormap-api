@@ -3,62 +3,51 @@ HOST: http://polls.apiblueprint.org/
 
 # DoctorMap API
 
+Production API URL: 
+
+http://api.doctormap.az/v1/ - це заглушка, в майбутньому тут буде справжня адреса
+
 ## Status Code
 
         1 - success
         2 - user already exists
         3 - access denied
-        
-## Users Collection [/users]
 
-### Get user info [GET]
+## SMS API [/sms]
++ action (Number) - required
+
+            1 - invite_friend
+            2 - check_code
+
+### Invite friend by SMS [POST]
 
 + Request (application/json)
 
         {
-            "id": "9"
+            "action": "1",
+            "phone": "+380681234567"
         }
 
 + Response 200 (application/json)
 
-        {
-            "id": "9",
-            "phone": "+380681234567",
-            "name": "Test User",
-            "birthdate": "1990-01-01",
-            "gender": "testuser@gmail.com",
-            "city": "Запорожье",
-            "access_token": "123123123",
-            "account_type": "1",
-            "card_number": "1234-1234-1234-1234"
-        }
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
 
-## User Registration [/users/register]
+    + Body
 
-### Register new user [POST]
-+ phone (String) - required
-+ name (String) - required
-+ birthdate (String) - required
-
-        yyyy-mm-dd
-
-+ gender (Bool) - required
-
-        female - 0
-        male - 1
-            
-+ city (String) - required
-+ region (String) - required
+            {
+                "status": 1,
+            }
+        
+### Check user SMS code [POST]
 
 + Request (application/json)
 
         {
-            "phone": "+380681234567"
-            "name": "New User",
-            "birthdate": "1980-01-01"
-            "gender": true,
-            "city": "Запорожье",
-            "region": "Запорожская область"
+            "action": "2",
+            "phone": "+380681234567",
+            "code": "12-12-12"
         }
 
 + Response 200 (application/json)
@@ -66,16 +55,49 @@ HOST: http://polls.apiblueprint.org/
         {
             "status": 1,
             "data": {
-                "id": "123",
+                "access_token": "jopJCkS6pxWQlb_KaMO9OCfElmwZATsx"
+            }
+        }
+
+## User Registration [/users/register]
+
+### Register new user [POST]
+
+    + phone (string) - required
+    + name (String) - required
+    + birthdate (String) - required
+    
+            yyyy-mm-dd
+    
+    + gender (Bool) - required
+    
+            female - 0
+            male - 1
+                
+    + city (String) - required
+    + region (String) - optional
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
                 "phone": "+380681234567"
                 "name": "New User",
                 "birthdate": "1980-01-01"
                 "gender": true,
                 "city": "Запорожье",
-                "region": "Запорожская область",
-                "card_number": "1234 1234 1234 1234",
-                "account_type": "1"
+                "region": "Запорожская область"
             }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1
         }
         
 ## User Sign in [/users/signin]
@@ -91,18 +113,31 @@ HOST: http://polls.apiblueprint.org/
 + Response 200 (application/json)
 
         {
-            "status": 1,
-            "data": {
-                "id": "123",
-                "phone": "+380681234567",
-                "name": "New User",
-                "birthdate": "1980-01-01",
-                "gender": true,
-                "city": "Запорожье",
-                "region": "Запорожская область",
-                "card_number": "1234 1234 1234 1234",
-                "account_type": "1"
-            }
+            "status": 1
+        }
+        
+## Users Collection [/users]
+
+### Get user info [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
++ Response 200 (application/json)
+
+        {
+            "id": "123",
+            "phone": "+380681234567",
+            "name": "Test User",
+            "birthdate": "1990-01-01",
+            "gender": 1,
+            "city": "Запорожье",
+            "region": "Космический"
+            "account_type": "1",
+            "card_number": "1234-1234-1234-1234"
         }
         
 ## User Updating [/users/setAccountType]
@@ -214,51 +249,3 @@ HOST: http://polls.apiblueprint.org/
                 "name": "Эндакринолог"
             },
           ]
-          
-## SMS API [/sms]
-    action:
-    + 1 - invite_friend
-    + 2 - check_code
-
-### Invite friend by SMS [POST]
-
-+ Request (application/json)
-
-        {
-            "action": "1",
-            "data": {
-                "phone": "+380681234567"
-            },
-            "access_token": "123123123"
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "status": 1,
-            "data": {
-                "account_type": 0
-            }
-        }
-        
-### Check user SMS code [POST]
-
-+ Request (application/json)
-
-        {
-            "action": "2",
-            "data": {
-                "phone": "+380681234567",
-                "code": "12-12-12"
-            },
-            "access_token": "123123123"
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "status": 1,
-            "data": {
-                "account_type": 0
-            }
-        }

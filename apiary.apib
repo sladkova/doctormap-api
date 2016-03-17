@@ -19,6 +19,25 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
             1 - invite_friend
             2 - check_code
 
+### Check user SMS code [POST]
+
++ Request (application/json)
+
+        {
+            "action": "2",
+            "phone": "+380681234567",
+            "code": "12-12-12"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": {
+                "access_token": "jopJCkS6pxWQlb_KaMO9OCfElmwZATsx"
+            }
+        }
+
 ### Invite friend by SMS [POST]
 
 + Request (application/json)
@@ -39,25 +58,6 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
             {
                 "status": 1,
             }
-        
-### Check user SMS code [POST]
-
-+ Request (application/json)
-
-        {
-            "action": "2",
-            "phone": "+380681234567",
-            "code": "12-12-12"
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "status": 1,
-            "data": {
-                "access_token": "jopJCkS6pxWQlb_KaMO9OCfElmwZATsx"
-            }
-        }
 
 ## User Registration [/users/register]
 

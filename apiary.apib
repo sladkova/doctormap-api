@@ -66,8 +66,21 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 + Request (application/json)
 
         {
+            "action": "1",
+            "phone": "+380681234567"
+        }
+
++ Response 200 (application/json)
+
+            {
+                "status": 1,
+            }
+            
++ Request (application/json)
+
+        {
             "action": "2",
-            "phone": "+380681234567",
+            "phone": "+380684466574",
             "code": "12-12-12"
         }
 
@@ -76,30 +89,9 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         {
             "status": 1,
             "data": {
-                "access_token": "jopJCkS6pxWQlb_KaMO9OCfElmwZATsx"
+                "authorization": "jopJCkS6pxWQlb_KaMO9OCfElmwZATsx"
             }
         }
-
-### Invite friend by SMS [POST]
-
-+ Request (application/json)
-
-        {
-            "action": "1",
-            "phone": "+380681234567"
-        }
-
-+ Response 200 (application/json)
-
-    + Headers
-    
-            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
-
-    + Body
-
-            {
-                "status": 1,
-            }
 
 ## User Registration [/users/register]
 
@@ -142,7 +134,7 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
             "status": 1
         }
         
-## User Sign in [/users/signin]
+## User Sign in [/users/sign-in]
         
 ### User Sign in [POST]
 
@@ -192,7 +184,31 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                 "city": "Запорожье",
                 "region": "Космический",
                 "account_type": "0",
-                "card_number": "1234-1234-1234-1234"
+                "card_number": "1234-1234-1234-1234",
+                "members": [
+                    {
+                        "id": "111",
+                        "phone": "+380671234567",
+                        "name": "Test User1",
+                        "birthdate": "1990-01-01",
+                        "gender": 1,
+                        "city": "Запорожье",
+                        "region": "Космический",
+                        "account_type": "0",
+                        "card_number": "1234-1234-1234-1234"
+                    },
+                    {
+                        "id": "222",
+                        "phone": "+380691234567",
+                        "name": "Test User2",
+                        "birthdate": "1990-01-01",
+                        "gender": 1,
+                        "city": "Запорожье",
+                        "region": "Космический",
+                        "account_type": "0",
+                        "card_number": "1234-1234-1234-1234"
+                    }
+                ]
             }
         }
         
@@ -222,7 +238,7 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
             "birthdate": "1980-01-01",
             "gender": "newuser@gmail.com",
             "city": "Запорожье",
-            "access_token": "123123123",
+            "authorization": "123123123",
             "account_type": "1"
         }
         

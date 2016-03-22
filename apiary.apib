@@ -97,7 +97,7 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 
 ### Register new user [POST]
 
-    + phone (string) - required
+    + phone (String) - required
     + name (String) - required
     + birthdate (String) - required
     
@@ -108,8 +108,8 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
             female - 0
             male - 1
                 
-    + city (String) - required
-    + region (String) - optional
+    + city_id (Integer) - required
+    + region_id (Integer) - optional
 
 + Request (application/json)
 
@@ -122,10 +122,10 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
             {
                 "phone": "+380681234567"
                 "name": "New User",
-                "birthdate": "1980-01-01"
+                "birthdate": "1980-01-01",
                 "gender": true,
-                "city": "Запорожье",
-                "region": "Запорожская область"
+                "city_id": 1,
+                "region_id": 1
             }
 
 + Response 200 (application/json)
@@ -181,8 +181,8 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                 "name": "Test User",
                 "birthdate": "1990-01-01",
                 "gender": 1,
-                "city": "Запорожье",
-                "region": "Космический",
+                "city_id": 1,
+                "region_id": 1,
                 "account_type": "0",
                 "card_number": "1234-1234-1234-1234",
                 "members": [

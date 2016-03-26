@@ -3,6 +3,10 @@ HOST: http://polls.apiblueprint.org/
 
 # DoctorMap API
 
+Debug API URL: 
+
+http://doctormap.dragan.com.ua/
+
 Production API URL: 
 
 http://api.doctormap.az/v1/ - це заглушка, в майбутньому тут буде справжня адреса
@@ -292,7 +296,7 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
             }
         ]
           
-## Doctor's Categories Collection [/doctorCategories]
+## Doctor's Categories Collection [/doctor-spec]
 
 ### Get all doctor's categories [GET]
 
@@ -306,25 +310,30 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 
         [
             {
-                "id": "1",
-                "name": "Андролог",
-                "count": "5"
+                "term_taxonomy_id":"251",
+                "term_id":"146",
+                "count":"0",
+                "term":{
+                    "term_id":"146",
+                    "name":"Allerqoloq"
+                }
             },
             {
-                "id": "2",
-                "name": "Диетолог",
-                "count: "12"
+                "term_taxonomy_id":"258",
+                "term_id":"183",
+                "count":"7",
+                "term":{
+                    "term_id":"183",
+                    "name":"Dermatoveneroloq"
+                }
             },
             {
-                "id": "3",
-                "name": "Аллерголог"
-            },
-            {
-                "id": "4",
-                "name": "Гематолог"
-            },
-            {
-                "id": "5",
-                "name": "Эндакринолог"
-            },
-          ]
+                "term_taxonomy_id":"259",
+                "term_id":"150",
+                "count":"2",
+                "term":{
+                    "term_id":"150",
+                    "name":"Dietoloq"
+                }
+            }
+        ]

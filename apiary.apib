@@ -43,31 +43,30 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 
              {
               "status": 1,
-              "data": {
-                [
-                  {
-                    "id": "1",
-                    "name": "Muayine",
-                    "count": "5",
-                    "fardi": "10",
-                    "aile": "20"
-                  },
-                  {
-                    "id": "2",
-                    "name": "Check-UP",
-                    "count": "2",
-                    "fardi": "50",
-                    "aile": "70"
-                  },
-                  {
-                    "id": "3",
-                    "name": "Emeliyyatlar",
-                    "count": "0",
-                    "fardi": "-",
-                    "aile": "10"
-                  }
-                ]
-              }
+              "data": [
+                {
+                  "id": "1",
+                  "name": "Muayine",
+                  "count": "5",
+                  "fardi": "10",
+                  "aile": "20"
+                },
+                {
+                  "id": "2",
+                  "name": "Check-UP",
+                  "count": "2",
+                  "fardi": "50",
+                  "aile": "70"
+                },
+                {
+                  "id": "3",
+                  "name": "Emeliyyatlar",
+                  "count": "0",
+                  "fardi": "-",
+                  "aile": "10"
+                }
+              ]
+            }
 
 ## SMS API [/sms]
 + action (Number) - required
@@ -270,47 +269,47 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 
 + Response 200 (application/json)
 
-            "status": 1,
-            "data": {
-                [
-                    {
-                        "id": "1",
-                        "name": "Endirimler",
-                        "count": 20
-                    },
-                    {
-                        "id": "2",
-                        "name": "Aksiyalar",
-                        "count": 20
-                    },
-                    {
-                        "id": "3",
-                        "name": "Hədiyyələr",
-                        "count": 20
-                    },
-                    {
-                        "id": "4",
-                        "name": "Elanlar",
-                        "count": 20
-                    },
-                    {
-                        "id": "5",
-                        "name": "Məqalələr",
-                        "count": 20
-                    },
-                    {
-                        "id": "6",
-                        "name": "Forum",
-                        "count": 20
-                    },
-                    {
-                        "id": "7",
-                        "name": "Administrator online",
-                        "count": 20
-                    }
-                ]
+             {
+              "status": 1,
+              "data": [
+                {
+                  "id": "1",
+                  "name": "Endirimler",
+                  "count": 20
+                },
+                {
+                  "id": "2",
+                  "name": "Aksiyalar",
+                  "count": 20
+                },
+                {
+                  "id": "3",
+                  "name": "Hədiyyələr",
+                  "count": 20
+                },
+                {
+                  "id": "4",
+                  "name": "Elanlar",
+                  "count": 20
+                },
+                {
+                  "id": "5",
+                  "name": "Məqalələr",
+                  "count": 20
+                },
+                {
+                  "id": "6",
+                  "name": "Forum",
+                  "count": 20
+                },
+                {
+                  "id": "7",
+                  "name": "Administrator online",
+                  "count": 20
+                }
+              ]
             }
-          
+
 ## Doctor's Categories Collection [/doctor-spec]
 
 ### Get all doctor's categories [GET]
@@ -323,9 +322,9 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 
 + Response 200 (application/json)
 
-            "status": 1,
-            "data": {
-              [
+            {
+              "status": 1,
+              "data": [
                 {
                   "term_taxonomy_id": "251",
                   "term_id": "146",

@@ -14,6 +14,8 @@ http://doctormap.dragan.com.ua/
         + /users/register
         + /promo-categories
         + /posts (события)
+        + /users/set-account-type
+        + /users/add-member
         + /promo-categories/promo-list-by-category
 
 Production API URL: 
@@ -25,6 +27,74 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         1 - success
         2 - user already exists
         3 - access denied
+        
+## Add member to the user [/users/add-member]
+
+### Register new user [POST]
+
+    + phone (String) - required
+    + name (String) - required
+    + birthday (String) - required
+    
+            yyyy-mm-dd
+    
+    + gender (Bool) - required
+    
+            female - 0
+            male - 1
+                
+    + city_id (Integer) - required
+    + region_id (Integer) - optional
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "phone": "+380681234567",
+                "name": "New User",
+                "birthday": "1980-01-01",
+                "gender": true,
+                "city_id": 1,
+                "region_id": 1
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1
+        }
+    
+## События [/posts]
+
+### Список всех событий [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
++ Response 200 (application/json)
+
+            {
+                "status": 1,
+                "data":
+                    [
+                        {
+                            "post_title": "Şirinə qarşı meyliliyə üstün gəlmək  ",
+                            "post_content": "Kiçik porsiyalarla müntəzəm qida qəbulu şirniyyata olan meyliliyin qarşısını almağa kömək edir. Bu metod qanda olan şəkərin qalxmasının qarşısını almağa köməklik edir. Əgər şəkərsiz heç cür qala bilmirsinizsə, bu zaman şəkər tərkibli tərəvəzləri meyvələrlə əvəz edin. <!--more-->\r\nŞirniyyata olan meylliyiniz Sizin qida rasionunuzda tərəvəzlərin seçiminizə təsir etməməlidir. Bəzi kiçik həcmli qida porsiyaları var ki, onlar Sizi gün ərzində tox saxlayır və şəkər tərkibli bir şeylər yeməyinizin qarşısını alır.  Qida rasionunuz zəngin proteinli və sağlam yağlı kiçik porsiyalardan ibarət olmalıdır. Bununla yanaşı buraya tərəvəz, quru meyvə, üzüm və çərəz əlavə olunmalıdır. Bu pəhriz Sizə gün ərzində güclü qalmağınıza kömək edəcək.\r\n\r\nŞirniyyata olan meylliliyinizin qarşısını ala bilməyən zaman keyfiyyətli qida rasionundan istifadə edin. Əsl tünd qara şokoladın orqanizmə heç bir ziyanı yoxdur. Çalışın şokoladı asta və dadını hiss edərək yeyin."
+                        },
+                        {
+                            "post_title": "Elektron siqaretlərin sağlamlığa olan potensial zərərləri haqqında",
+                            "post_content": "Bu məqalə Ümumdünya Səhiyyə təşkilatı tərəfindən nikotin tərkibli elektron siqaretlərə qoyulan qadağa ilə bağlı qərarlarına əsasən dərc olunmuşdur.\r\n\r\nHeç kim, elektron siqaretlərin zərrəsiz olduğunu bilmir. Reklamlarda elektron siqaretlərin insanlara siqaret çəkməyi tərgitməyinə köməklik etdiyi deyilir. Lakin heç bir araşdırma bu fikri təsdiq etməyib.\r\n\r\nElektron siqaretlər adi siqaret və ya siqar kimidirlər. <!--more-->Bu cihazların qələmə oxşar forması var. Cihaz batareya ilə işləyir. İçərisində xüsusi isidicisi, nikatın və digər kimyəvi maddələr olan katrici var. Bununla yanaşı cihaz alışan kimyəvi maddələri tüstü halına çevirən spreylə təchiz olunub.\r\n\r\nKimin, nəyinə lazımdır elektron siqaret çəkmək? Adi siqaretlərin tərkibində istifadəçilərdə asılılıq yaradan nikatın olur. Eyni zamanda siqaretin tərkibində orqanizmə düşən zaman onkoloji xəstəliklərin yaranmasına səbəb ola biləcək qatran olur. Elektron siqaret tərəfdarları əmin edirlər ki, cihaz sağlamlığa heç bir zərər vermədən siqaret çəkməyə imkan verir.\r\n\r\nElektron siqaret istifadəçisi siqaret çəkən zaman nikotin, su və propilen qlikol məhlulu udur. Nikotin iyi əvvəllər siqaret çəkən bəzi insanlarda yenidən adi siqaret çəkmək arzusu yaradır. Elektron siqaretdən istifadə edən insan qatran, adi siqaretdə olan dəm qazı və başqa maddələr udmur. Bu səbəbdən elektron siqaret istifadəçisi nikotindən zövq alarkən xərçəng xəstəliyinə tutulma qorxusu ilə üz-üzə qalmır.\r\n\r\nAldanmayın. Elektron siqaretlərə ehtiyatla yanaşmaq lazımdır. Əvvəla hər nəfəsdə aldığınız nikotin fərqli ola bilər. Nikotin – çox orqanların fəaliyyətini stimullaşdırır və nikotinin yüksək dozası ürəyin ritmini poza bilər. Hazırda elektron siqaretlərin ürək ritminin pozmasına dair heç bir dəlil yoxdur.\r\n\r\nİkincisi, elektron siqaretlərin tərkibində bir çox kimyəvi spektrlər var. Bu maddələrə yüksək zəhərli dietilenqlikolun qlikol, yüksək kanserogen Formaldehid və insan orqanizminə zərər verən daha 4 zərərli maddələr daxildir.\r\n\r\nHələ ki, elektron siqaretlərin adi siqaretlər kimi xərçəng xəstəliyi yaratmasına dair heç bir dəlil yoxdur. Bu da elektron siqaretlərlə bağlı uzunmüddətli tədqiqatların aparılmadığından irəli gəlir.\r\n\r\nÜçüncüsü elektron siqaretlər siqaret çəkmə prosesini təqlid etmək üçün ixtira olunub. Sırf bu səbəbdən siqareti tərgitmiş insanda yenidən əvvəlki adətinə qayıtmaq həvəsi yarana bilər. Elektron siqaret heç vaxt siqaret çəkməyən cavan insanlar üçün adi siqaretdən istifadəyə keçməyə ilk addım ola bilər. Tibbi cəhətdən elektron siqaretin zərərləri haqqında geniş sübut və dəlillər olmadan istifadəçilərə ehtiyatlı olmaları tövsiyə olunur."
+                        }
+                    ]
+            } 
         
 ## Discounts [/discounts]
 
@@ -230,7 +300,7 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
             }
         }
         
-## User Updating [/users/setAccountType]
+## User Updating [/users/set-account-type]
 
 ### Set Account Type [POST]
 

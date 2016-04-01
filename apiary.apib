@@ -17,6 +17,7 @@ http://doctormap.dragan.com.ua/
         + /users/set-account-type
         + /users/add-member
         + /promo-categories/promo-list-by-category
+        + /doctor-spec/doctor-list-by-category
 
 Production API URL: 
 
@@ -27,6 +28,79 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         1 - success
         2 - user already exists
         3 - access denied
+        
+## Doctors list by category [/doctor-spec/doctor-list-by-category]
+
+### Doctors list by category [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "term_taxonomy_id": "259",
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": [
+                {
+                    "object_id": "1077",
+                    "post": {
+                      "id": "1077",
+                      "post_title": "Uzm. Dr. Məlahət Kərimova",
+                      "post_content": "1997 - 1998 Hacettepe Universiteti xəstəxanası, mütəxəssislik\r\nİş təcrübəsi\r\n2000 - 2003 H.Əliyev adına Müasir Təhsil Komleksi\r\nDietoloq\r\n2009 - Mərkəzi Gömrük Hospitalı"
+                    }
+                  },
+                  {
+                    "object_id": "1862",
+                    "post": {
+                      "id": "1862",
+                      "post_title": "Dr. Tutu Zeynalova",
+                      "post_content": "Zeynalova Tutu Nizami qızı 1981-ci ildə Bakı şəhərində anadan olub. 2004-cü ildə Azərbaycan Tibb Universitetinin \"Müalicə işi\" fakültəsini bitirib. 2005-2011-ci illərdə həkim-anestezioloq olaraq çalışıb. Həkim-dietoloq olaraq Türkiyə Cumhuriyyətində təkmilləşib, Özəl Koru Hastanesi - Diyet ve Beslenme bölümü (Ankara 2012). TC Marmara Universiteti Tıp fakultesi \"İç hastalıkları ana bilim dalı endokrinoloji ve metabolizma\" hastalıkları bilim dalı Beslenme ve Diyetetik alanı (İstanbul 2013). Azərbaycan Plastik cərrahiyyə və Azərbaycan bariatik cərrahiyyə cəmiyyətlərinin həkim-dietoloqudur.\r\n\r\n"
+                    }
+            ]
+        }
+        
+## List of promos by category [/promo-categories/promo-list-by-category]
+
+### List of promos by category [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "term_taxonomy_id": "344"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": [
+                {
+                  "id": "5399",
+                  "post_date": "2015-11-02 20:45:32",
+                  "post_content": "<h3><span style=\"color: #ff0000;\"><strong>Endirim 20%</strong></span></h3>\r\nİmplantologiya xidmətlərinin qiyməti implantın markasına görə dəyişir. Müvafiq olaraq:\r\n\r\nTürkiyə, Koreya, İsrail - 500AZN\r\nAmerika, İsveçrə, Almaniya - 800 AZN\r\nİTİ (İsveçrə) - 1200AZN\r\nİTİ (İsveçrə) - 1500 AZN"
+                },
+                {
+                  "id": "4866",
+                  "post_date": "2015-05-20 20:01:41",
+                  "post_content": "<h3><span style=\"color: #ff0000;\"><strong>Endirim 20%</strong></span></h3>\r\nİmplantologiya xidmətlərinin qiyməti implantın markasına görə dəyişir. Müvafiq olaraq:\r\n\r\nTürkiyə, Koreya, İsrail - 500AZN\r\nAmerika, İsveçrə, Almaniya - 800 AZN\r\nİTİ (İsveçrə) - 1200AZN\r\nİTİ (İsveçrə) - 1500 AZN"
+                },
+            ]
+        }
         
 ## Add member to the user [/users/add-member]
 

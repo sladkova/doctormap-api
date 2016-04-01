@@ -226,9 +226,9 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         
 ### User Sign in [POST]
 
-    Response statuses:
-        + 1 - user exists, SMS was sended
-        + 2 - user not exists, must be registered now?
+    Response is_registered:
+        + true - user exists, SMS was sended
+        + false - user not exists, must be registered now?
 
 + Request (application/json)
 
@@ -239,7 +239,10 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 + Response 200 (application/json)
 
         {
-            "status": 1
+            "status": 1,
+            "data": {
+                "is_registered": false,
+           }
         }
         
 ## Users Collection [/users]

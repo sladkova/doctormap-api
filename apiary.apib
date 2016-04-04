@@ -284,51 +284,6 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                         }
                     ]
             } 
-        
-## Discounts [/discounts]
-
-### Get all discounts by promo category [GET]
-
-+ Request (application/json)
-
-    + Headers
-
-            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
-   
-    + Body
-    
-            {
-               "promo_category_id": "1"
-            }
-
-+ Response 200 (application/json)
-
-             {
-              "status": 1,
-              "data": [
-                {
-                  "id": "1",
-                  "name": "Muayine",
-                  "count": "5",
-                  "fardi": "10",
-                  "aile": "20"
-                },
-                {
-                  "id": "2",
-                  "name": "Check-UP",
-                  "count": "2",
-                  "fardi": "50",
-                  "aile": "70"
-                },
-                {
-                  "id": "3",
-                  "name": "Emeliyyatlar",
-                  "count": "0",
-                  "fardi": "-",
-                  "aile": "10"
-                }
-              ]
-            }
 
 ## SMS API [/sms]
 + action (Number) - required
@@ -439,7 +394,6 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 ### Get user info [GET]
 
     + account_type:
-        0 - not registered
         1 - limited package
         2 - unlimited package (owner)
         3 - unlimited package (member)

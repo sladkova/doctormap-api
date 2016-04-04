@@ -18,6 +18,8 @@ http://doctormap.dragan.com.ua/
         + /users/add-member
         + /promo-categories/promo-list-by-category
         + /doctor-spec/doctor-list-by-category
+        + /institution/all-institution-types (типы учреждений)
+        + /institution/institution-list-by-type (список учреждений по типу)
 
 Production API URL: 
 
@@ -28,6 +30,119 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         1 - success
         2 - user already exists
         3 - access denied
+        
+## Institutions list by type [/institution/institution-list-by-type]
+
+### Institutions list by type [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "term_taxonomy_id": "172",
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": [
+                {
+                      "object_id": "547",
+                      "post": {
+                        "id": "547",
+                        "post_title": "Caspian International Hospital",
+                        "post_content": "T",
+                        "metadata": [
+                          {
+                            "meta_id": "2529",
+                            "post_id": "547",
+                            "meta_key": "_property_latitude",
+                            "meta_value": "40.343581821853775"
+                          },
+                          {
+                            "meta_id": "2530",
+                            "post_id": "547",
+                            "meta_key": "_property_longitude",
+                            "meta_value": "49.810154640258816"
+                          }
+                        ]
+                      }
+                    },
+                    {
+                      "object_id": "604",
+                      "post": {
+                        "id": "604",
+                        "post_title": "Grand Hospital",
+                        "post_content": "Tm",
+                        "metadata": [
+                          {
+                            "meta_id": "3149",
+                            "post_id": "604",
+                            "meta_key": "_property_latitude",
+                            "meta_value": "40.39907498808761"
+                          },
+                          {
+                            "meta_id": "3150",
+                            "post_id": "604",
+                            "meta_key": "_property_longitude",
+                            "meta_value": "49.836423744738795"
+                          }
+                        ]
+                      }
+                    }
+            ]
+        }
+        
+## Institution Types Collection [/institution/all-institution-types]
+
+### Get all institution types [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
++ Response 200 (application/json)
+
+            {
+              "status": 1,
+              "data": [
+                {
+                      "term_taxonomy_id": "172",
+                      "term_id": "141",
+                      "count": "23",
+                      "term": {
+                        "term_id": "141",
+                        "name": "Klinikalar"
+                      }
+                    },
+                    {
+                      "term_taxonomy_id": "174",
+                      "term_id": "143",
+                      "count": "0",
+                      "term": {
+                        "term_id": "143",
+                        "name": "Apteklər"
+                      }
+                    },
+                    {
+                      "term_taxonomy_id": "350",
+                      "term_id": "260",
+                      "count": "8",
+                      "term": {
+                        "term_id": "260",
+                        "name": "Fitness &amp; SPA"
+                      }
+                    }
+              ]
+            }
         
 ## Doctors list by category [/doctor-spec/doctor-list-by-category]
 
@@ -315,7 +430,7 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         {
             "status": 1,
             "data": {
-                "is_registered": false,
+                "is_registered": true,
            }
         }
         
@@ -411,11 +526,9 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 
 ### Get all categories [GET]
 
-+ Request (application/json)
++ Headers
 
-        {
-           
-        }
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
 
 + Response 200 (application/json)
 

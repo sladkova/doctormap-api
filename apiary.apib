@@ -12,14 +12,16 @@ http://doctormap.dragan.com.ua/
         + /users/sign-in
         + /users (get user by authorization)
         + /users/register
-        + /promo-categories
+        + /promo-categories ??
         + /posts (события)
         + /users/set-account-type
         + /users/add-member
-        + /promo-categories/promo-list-by-category
+        + /promo-categories/promo-list-by-category ??
         + /doctor-spec/doctor-list-by-category
         + /institution/all-institution-types (типы учреждений)
         + /institution/institution-list-by-type (список учреждений по типу)
+        + /categories
+        + /categories/get-list-by-category
 
 Production API URL: 
 
@@ -29,7 +31,112 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 
         1 - success
         2 - general error
-        3 - access denied
+        3 - access 
+        
+## Get all items of the category [/categories/get-list-by-category]
+
+### Get all items of the specified category [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "category_id": "1",
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": [
+                "Klinikalar": [
+                  {
+                    "category": "Klinikalar",
+                    "promo_category": "Ağız və üz-çənə cərrahiyyəsi",
+                    "count": "7",
+                    "discount": "25"
+                  },
+                  {
+                    "category": "Klinikalar",
+                    "promo_category": "Check-up",
+                    "count": "31",
+                    "discount": "50"
+                  }
+                ],
+                "Fitness &amp; SPA": [
+                  {
+                    "category": "Fitness &amp; SPA",
+                    "promo_category": "Badminton",
+                    "count": "1",
+                    "discount": "10"
+                  },
+                  {
+                    "category": "Fitness &amp; SPA",
+                    "promo_category": "Doyüş növləri",
+                    "count": "4",
+                    "discount": "10"
+                  }
+                ]
+            ]
+        }
+        
+## All Categories Collection [/categories]
+
+### Get all categories [GET]
+
++ Request (application/json)
+
+    + Headers
+
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
++ Response 200 (application/json)
+
+            {
+                "status": 1,
+                "data": [
+                    {
+                      "id": 1,
+                      "name": "Скидки",
+                      "count": 201
+                    },
+                    {
+                      "id": 2,
+                      "name": "Акции",
+                      "count": 7
+                    },
+                    {
+                      "id": 3,
+                      "name": "Подарки",
+                      "count": 2
+                    },
+                    {
+                      "id": 4,
+                      "name": "Объявления",
+                      "count": 0
+                    },
+                    {
+                      "id": 5,
+                      "name": "Статьи",
+                      "count": 24
+                    },
+                    {
+                      "id": 6,
+                      "name": "Forum",
+                      "count": 58
+                    },
+                    {
+                      "id": 7,
+                      "name": "Administrator online",
+                      "count": 3
+                    }
+                ]
+            }
         
 ## Institutions list by type [/institution/institution-list-by-type]
 

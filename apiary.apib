@@ -84,6 +84,33 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                 ]
             ]
         }
+
+
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "category_id": "2",
+            }
+
++ Response 200 (application/json)
+            {
+              "status": 1,
+              "data": [
+                {
+                  "promo_category": "Check-up",
+                  "count": "13",
+                  "reg_price": "320",
+                  "sale_price": "240"
+                }
+              ]
+            }
         
 ## All Categories Collection [/categories]
 

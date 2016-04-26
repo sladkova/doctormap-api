@@ -33,6 +33,65 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         2 - general error
         3 - access 
         
+## Promos list by institution [/institution/promos-list-by-institution]
+
+### Promos list by institution [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "object_id": "5204"
+            }
+
++ Response 200 (application/json)
+
+        {
+          "status": 1,
+          "data": {
+            "344": {
+              "category_id": "344",
+              "category": "İmplantologiya",
+              "count": 4,
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "10"
+            },
+            "346": {
+              "category_id": "346",
+              "category": "Ortodontiya",
+              "count": 4,
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "10"
+            },
+            "347": {
+              "category_id": "347",
+              "category": "Protezləmə",
+              "count": 4,
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "15"
+            },
+            "348": {
+              "category_id": "348",
+              "category": "Ağız və üz-çənə cərrahiyyəsi",
+              "count": 7,
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "20"
+            },
+            "363": {
+              "category_id": "363",
+              "category": "Terapevtik",
+              "count": 4,
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "20"
+            }
+          }
+        }
+        
 ## Doctors list by institution [/doctor-spec/doctor-list-by-institution]
 
 ### Doctors list by institution [POST]
@@ -430,62 +489,6 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                             "id": "5204",
                             "post_title": "İmplant Estetik",
                             "post_content": "Sumqayit sheh, 6-ci mkr. C.Memmedquluzade kuch,AZ5000 (H.Eliyev parkinin yax-da), AZ5000 Sumqayyt, Azerbaijan",
-                            "promos": [
-                              {
-                                "promo_discount_unlimited_package": "0",
-                                "title": "İmplantologiya",
-                                "count": 1,
-                                "_promo_discount": "10"
-                              },
-                              {
-                                "promo_discount_unlimited_package": "0",
-                                "title": "Ağız və üz-çənə cərrahiyyəsi",
-                                "count": 1,
-                                "_promo_discount": "20"
-                              },
-                              {
-                                "promo_discount_unlimited_package": "0",
-                                "title": "İmplantologiya",
-                                "count": 1,
-                                "_promo_discount": "10"
-                              },
-                              {
-                                "promo_discount_unlimited_package": "0",
-                                "title": "Ortodontiya",
-                                "count": 1,
-                                "_promo_discount": "10"
-                              },
-                              {
-                                "promo_discount_unlimited_package": "0",
-                                "title": "Stomatoloji Ortopediya",
-                                "count": 1,
-                                "_promo_discount": "15"
-                              },
-                              {
-                                "promo_discount_unlimited_package": "0",
-                                "title": "Paradontologiya",
-                                "count": 1,
-                                "_promo_discount": "20"
-                              },
-                              {
-                                "promo_discount_unlimited_package": "0",
-                                "title": "Rentgen Diaqnostika",
-                                "count": 1,
-                                "_promo_discount": "20"
-                              },
-                              {
-                                "promo_discount_unlimited_package": "0",
-                                "title": "Estetik Stomatologiya",
-                                "count": 1,
-                                "_promo_discount": "20"
-                              },
-                              {
-                                "promo_discount_unlimited_package": "0",
-                                "title": "Dişlərin müalicəsi",
-                                "count": 1,
-                                "_promo_discount": "20"
-                              }
-                            ],
                             "_property_address": "Sumqayit sheh, 6-ci mkr.",
                             "_property_latitude": "40.57989042788332",
                             "_property_longitude": "49.685871352732875",
@@ -508,7 +511,6 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                             "id": "668",
                             "post_title": "Tusi Klinika",
                             "post_content": "<strong>N. Tusi adına Klinika</strong> geniş profilli müalicə - diaqnostika müəssisəsi olub poliklinika və stasionar şöbələrindən ibarətdir. Klinikanın instrumental diaqnostika bölməsi ən müasir tibbi avadanlıqlarla təchiz olunmuşdur.\r\n\r\n<b>Ünvan:</b> Zərdabi küç. 53,\r\nBakı, Azərbaycan, AZ1009\r\n<b>Tel:</b> 431 35 31 | 433 66 84/87/89/91\r\n<b>Faks:</b> 430-85-27",
-                            "promos": [],
                             "_property_latitude": "40.39877698421234",
                             "_property_longitude": "49.805221832263214",
                             "_property_location_search": "Həsən bəy Zərdabi Küçəsi, Bakı, Azərbaycan",

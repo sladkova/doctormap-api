@@ -7,16 +7,16 @@ Debug API URL:
 
 http://doctormap.dragan.com.ua/
 
+        + /promos/promo-list-by-category (http://prnt.sc/awmsmo, http://prnt.sc/awltjf)
+        + /institution/promos-list-by-institution (http://prnt.sc/awms3r)
         + /doctor-spec/doctor-list-by-institution
         + /doctor-spec
         + /sms (action 1 and 2)
         + /users/sign-in
         + /users (get user by authorization)
         + /users/register
-        + /promo-categories ??
         + /users/set-account-type
         + /users/add-member
-        + /promo-categories/promo-list-by-category ??
         + /doctor-spec/doctor-list-by-category
         + /institution/all-institution-types (типы учреждений)
         + /institution/institution-list-by-type (список учреждений по типу)
@@ -32,6 +32,79 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         1 - success
         2 - general error
         3 - access 
+
+## Promos list by promo category [/promos/promo-list-by-category]
+
+### Promos list by promo category [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "category_id": "348"
+            }
+
++ Response 200 (application/json)
+
+        {
+          "status": 1,
+          "data": [
+            {
+              "institution_title": "22 Century",
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "25",
+              "promo_title": "Ağız və üz-çənə cərrahiyyəsi",
+              "promo_description": "<h3><span style=\"color: #ff0000;\">25 % Endirim</span></h3>"
+            },
+            {
+              "institution_title": "İMPLANT ART",
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "20",
+              "promo_title": "Ağız və üz-çənə cərrahiyyəsi",
+              "promo_description": "<h3><span style=\"color: #ff0000;\"><strong>20% Endirim</strong></span></h3>\r\n<ul>\r\n\t<li>Kistalar</li>\r\n\t<li>Şişlər</li>\r\n\t<li>Diş və çənə sınıqları</li>\r\n\t<li>Retension dişlərin çıxarılması</li>\r\n\t<li>Ağzın sərt və yumşaq toxumalarında edilən düzəlişlər</li>\r\n</ul>"
+            },
+            {
+              "institution_title": "İmplant Estetik",
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "10",
+              "promo_title": "İmplantologiya",
+              "promo_description": "10 %  endirim"
+            },
+            {
+              "institution_title": "İMPLANT ART",
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "20",
+              "promo_title": "İmplantologiya",
+              "promo_description": "<h3><span style=\"color: #ff0000;\"><strong>Endirim 20%</strong></span></h3>\r\nİmplantologiya xidmətlərinin qiyməti implantın markasına görə dəyişir. Müvafiq olaraq:\r\n\r\nTürkiyə, Koreya, İsrail - 500AZN\r\nAmerika, İsveçrə, Almaniya - 800 AZN\r\nİTİ (İsveçrə) - 1200AZN\r\nİTİ (İsveçrə) - 1500 AZN"
+            },
+            {
+              "institution_title": "İmplant Estetik",
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "20",
+              "promo_title": "Ağız və üz-çənə cərrahiyyəsi",
+              "promo_description": "<h3><span style=\"color: #ff0000;\">20 % Endirim</span></h3>"
+            },
+            {
+              "institution_title": "32 Beauty",
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "20",
+              "promo_title": "İmplantologiya",
+              "promo_description": "<h3><span style=\"color: #ff0000;\"><strong>Endirim 20%</strong></span></h3>\r\nİmplantologiya xidmətlərinin qiyməti implantın markasına görə dəyişir. Müvafiq olaraq:\r\n\r\nTürkiyə, Koreya, İsrail - 500AZN\r\nAmerika, İsveçrə, Almaniya - 800 AZN\r\nİTİ (İsveçrə) - 1200AZN\r\nİTİ (İsveçrə) - 1500 AZN"
+            },
+            {
+              "institution_title": "22 Century",
+              "promo_discount_unlimited_package": "0",
+              "_promo_discount": "20",
+              "promo_title": "İmplantologiya",
+              "promo_description": "<h3><span style=\"color: #ff0000;\">20 % Endirim</span></h3>"
+            }
+          ]
+        }
         
 ## Promos list by institution [/institution/promos-list-by-institution]
 

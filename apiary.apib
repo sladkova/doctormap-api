@@ -7,6 +7,8 @@ Debug API URL:
 
 http://doctormap.dragan.com.ua/
 
+        +- /forum/messages-list-by-forum (список сообщений форума, http://prnt.sc/awjg7y)
+        + /forum/themes-list (список форумов, http://prnt.sc/awjg7y)
         + /adversitements (объявления)
         + /promos/promo-list-by-category (http://prnt.sc/awmsmo, http://prnt.sc/awltjf)
         + /institution/promos-list-by-institution (http://prnt.sc/awms3r)
@@ -32,7 +34,43 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
 
         1 - success
         2 - general error
-        3 - access 
+        3 - access
+        
+## Get all forum themes [/forum/themes-list]
+
+### Get all forum themes [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
++ Response 200 (application/json)
+
+        {
+          "status": 1,
+          "data": [
+            {
+              "term_taxonomy_id": "449",
+              "term_id": "359",
+              "count": "0",
+              "term": {
+                "term_id": "359",
+                "name": "Как вам новая клиника Комаровского?"
+              }
+            },
+            {
+              "term_taxonomy_id": "450",
+              "term_id": "360",
+              "count": "0",
+              "term": {
+                "term_id": "360",
+                "name": "Кто был у Савина?"
+              }
+            }
+          ]
+        }
         
 ## Get all adversitements [/adversitements]
 
@@ -79,7 +117,12 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                 "post_mime_type": "",
                 "comment_count": "0"
               },
-              "url": "http://doctormap.az/adversitement/obyavlenie-11"
+              "url": "http://doctormap.az/adversitement/obyavlenie-11",
+              "image": {
+                "width": 1200,
+                "height": 424,
+                "url": "http://doctormap.az/wp-content/uploads/2016/04/slopesidenewrot-02.jpeg"
+              }
             }
           ]
         }

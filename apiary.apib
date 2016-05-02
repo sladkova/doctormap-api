@@ -7,6 +7,10 @@ Debug API URL:
 
 http://doctormap.dragan.com.ua/
 
+        + /online-messages/write (пост нового сообщения от юзера, http://prnt.sc/awjgf8)
+        + /online-messages (список сообщений из "Admin Online", http://prnt.sc/awjgf8)
+        + /users/set-device-token
+        + /forum/write (пост нового сообщения в форум, http://prnt.sc/awjg7y)
         + /forum/messages-list-by-forum (список сообщений форума, http://prnt.sc/awjg7y)
         + /forum/themes-list (список форумов, http://prnt.sc/awjg7y)
         + /adversitements (объявления)
@@ -35,6 +39,143 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         1 - success
         2 - general error
         3 - access
+        
+## Posting new messages to the given forum [/forum/write]
+
+### Posting new messages to the given forum [POST]
+
+    + text (String) - required
+    + term_taxonomy_id (Integer) - required (ID of the forum theme)
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "term_taxonomy_id": 449,
+                "text": "test test test"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1
+        }
+        
+## Posting new messages to the "Admin Online" [/online-messages/write]
+
+### Posting new messages to the "Admin Online" [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "text": "test test test"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1
+        }
+        
+## Messages list from "Admin Online" [/online-messages]
+
+### Messages list from "Admin Online" [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
++ Response 200 (application/json)
+
+        {
+          "status": 1,
+          "data": [
+            {
+              "id": "5739",
+              "post_content": "Hey let's catch up soon. Do you want to grab lunch sometime this weekend? Let me know when you're free!",
+              "post_date": "2016-05-02 23:28:00",
+              "user_id": "0",
+              "user": {
+                "name": "DoctorMap"
+              }
+            },
+            {
+              "id": "5738",
+              "post_content": "Can't wait to see you!",
+              "post_date": "2016-05-02 23:26:24",
+              "user_id": "2",
+              "user": {
+                "id": "2",
+                "phone": "+380684466574",
+                "name": "Olya",
+                "birthday": "1990-03-12",
+                "gender": "1",
+                "city_id": "1",
+                "region_id": "1",
+                "card_number": "9483 5118 4635 3417",
+                "parent_id": "6",
+                "account_type": "0"
+              }
+            },
+            {
+              "id": "5740",
+              "post_content": "test test",
+              "post_date": "2016-05-02 21:55:19",
+              "user_id": "2",
+              "user": {
+                "id": "2",
+                "phone": "+380684466574",
+                "name": "Olya",
+                "birthday": "1990-03-12",
+                "gender": "1",
+                "city_id": "1",
+                "region_id": "1",
+                "card_number": "9483 5118 4635 3417",
+                "parent_id": "6",
+                "account_type": "0"
+              }
+            }
+          ]
+        }
+        
+## Setting user device token [/users/set-device-token]
+
+### Setting user device token and type [POST]
+
+    + device_type (Integer) - required (1-Android,2-iOS)
+    + device_token (String) - required
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "device_type": 1,
+                "device_token": "KaMO9OCfElmwZATsxjopJCkS6pxWQlb_"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1
+        }
         
 ## Messages list by forum theme [/forum/messages-list-by-forum]
 
@@ -1288,6 +1429,8 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                 
     + city_id (Integer) - required
     + region_id (Integer) - optional
+    + device_type (Integer) - required (1-Android,2-iOS)
+    + device_token (String) - required
 
 + Request (application/json)
 
@@ -1303,7 +1446,9 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                 "birthday": "1980-01-01",
                 "gender": true,
                 "city_id": 1,
-                "region_id": 1
+                "region_id": 1,
+                "device_type": 1,
+                "device_token": "KaMO9OCfElmwZATsxjopJCkS6pxWQlb_"
             }
 
 + Response 200 (application/json)

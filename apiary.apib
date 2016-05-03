@@ -7,8 +7,8 @@ Debug API URL:
 
 http://doctormap.dragan.com.ua/
 
-        +- /gifts
-        +- /events
+        + /gifts (http://prnt.sc/awjejh)
+        + /events (http://prnt.sc/awjh8y)
         + /online-messages/write (пост нового сообщения от юзера, http://prnt.sc/awjgf8)
         + /online-messages (список сообщений из "Admin Online", http://prnt.sc/awjgf8)
         + /users/set-device-token
@@ -41,6 +41,57 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         1 - success
         2 - general error
         3 - access
+       
+## Get all events [/events]
+
+### Get all events [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
++ Response 200 (application/json)
+
+        {
+          "status": 1,
+          "data": [
+            {
+              "id": "5740",
+              "post_title": "25% скидка",
+              "post_content": "Стоматология \"Ортодонт\" ляляля",
+              "post_date": "2016-05-03 19:13:29",
+              "post_name": "25-skidka",
+              "event_date_end": "2016-06-01",
+              "url": "http://doctormap.az/event/25-skidka"
+            }
+          ]
+        }
+        
+## Get all gifts variants [/gifts]
+
+### Get all gifts variants [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
++ Response 200 (application/json)
+
+        {
+          "status": 1,
+          "data": [
+            {
+              "id": "5743",
+              "post_title": "Обследование сердца",
+              "gift_unlimited_package": true,
+              "gift_personal_package": false
+            }
+          ]
+        }
         
 ## Posting new messages to the given forum [/forum/write]
 

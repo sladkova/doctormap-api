@@ -7,6 +7,7 @@ Debug API URL:
 
 http://doctormap.dragan.com.ua/
 
+        + /users/request-unlimited-package
         + /users/sign-in (http://prnt.sc/b3i28a)
         + /users/check-sms (http://prnt.sc/b3i28a)
         + /users/check-promo (http://prnt.sc/b3i28a)
@@ -28,7 +29,6 @@ http://doctormap.dragan.com.ua/
         + /doctor-spec
         + /sms (action 1 and 2)
         + /users (get user by authorization)
-        + /users/set-account-type
         + /users/add-member
         + /doctor-spec/doctor-list-by-category
         + /institution/all-institution-types (типы учреждений)
@@ -45,6 +45,22 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         1 - success
         2 - general error
         3 - access
+        
+## Request unlmited package [/users/request-unlimited-package]
+
+### Request unlmited package [POST]
+
++ Request (application/json)
+        
+    + Headers
+
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
++ Response 200 (application/json)
+
+        {
+            "status": 1
+        }
         
 ## User Sign in [/users/sign-in]
         
@@ -1910,36 +1926,6 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                   }
                 ]
             }
-        }
-        
-## User Updating [/users/set-account-type]
-
-### Set Account Type [POST]
-
-+ Request (application/json)
-        
-    + Headers
-
-            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
-   
-    + Body
-  
-            {
-                "id": "123",
-                "account_type": "1"
-            }
-
-+ Response 200 (application/json)
-
-        {
-            "id": "123",
-            "phone": "+380681234567",
-            "name": "New User",
-            "birthdate": "1980-01-01",
-            "gender": "newuser@gmail.com",
-            "city": "Запорожье",
-            "authorization": "123123123",
-            "account_type": "1"
         }
         
 ## Promo Categories Collection [/promo-categories]

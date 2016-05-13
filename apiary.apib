@@ -7,6 +7,12 @@ Debug API URL:
 
 http://doctormap.dragan.com.ua/
 
+        + /users/sign-in (http://prnt.sc/b3i28a)
+        + /users/check-sms (http://prnt.sc/b3i28a)
+        + /users/check-promo (http://prnt.sc/b3i28a)
+        + /users/confirm (http://prnt.sc/b3i28a)
+        - /users/reset-login (http://prnt.sc/b3i28a)
+        + /users/register (http://prnt.sc/b3i28a)
         + /gifts (http://prnt.sc/awjejh)
         + /events (http://prnt.sc/awjh8y)
         + /online-messages/write (пост нового сообщения от юзера, http://prnt.sc/awjgf8)
@@ -21,9 +27,7 @@ http://doctormap.dragan.com.ua/
         + /doctor-spec/doctor-list-by-institution
         + /doctor-spec
         + /sms (action 1 and 2)
-        + /users/sign-in
         + /users (get user by authorization)
-        + /users/register
         + /users/set-account-type
         + /users/add-member
         + /doctor-spec/doctor-list-by-category
@@ -41,6 +45,208 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         1 - success
         2 - general error
         3 - access
+        
+## User Sign in [/users/sign-in]
+        
+### User Sign in [POST]
+
+    + phone (String) - required
+
++ Request (application/json)
+
+        {
+            "phone": "+994507505555"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": {
+                "is_registered": true,
+                "need_check_sms": false
+            }
+        }
+        
+## Check SMS code [/users/check-sms]
+        
+### Check SMS code [POST]
+
+    + phone (String) - required
+    + sms_code (String) - required
+
++ Request (application/json)
+
+        {
+            "phone": "+994507505555",
+            "sms_code": "12-12-12"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": {
+                "is_valid": true,
+                "need_enter_promo": false,
+                "authorization": "jopJCkS6pxWQlb_KaMO9OCfElmwZATsx"
+            }
+        }
+        
+## Check promo code [/users/check-promo]
+        
+### Check promo code [POST]
+
+    + promo_code (String) - required
+
++ Request (application/json)
+
+        {
+            "promo_code": "А52-455"
+        }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": {
+                "is_valid": true
+            }
+        }
+        
+## Confirm user login [/users/confirm]
+        
+### Confirm user login [POST]
+
+    + Authorizatioin header (String) - required
+    + promo_code (String) - optional
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+        
+            {
+                "promo_code": "А52-455"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1
+        }
+        
+## User Registration [/users/register]
+
+### Register new user [POST]
+
+    + phone (String) - required
+    + name (String) - required
+    + birthday (String) - required
+    
+            yyyy-mm-dd
+    
+    + gender (Bool) - required
+    
+            female - 0
+            male - 1
+                
+    + city_id (Integer) - required
+    + region_id (Integer) - optional
+    + device_type (Integer) - required (1-Android,2-iOS)
+    + device_token (String) - required
+    + promo_code (String) - optional
+
++ Request (application/json)
+
+    + Body
+
+            {
+                "phone": "+380681234567",
+                "name": "New User",
+                "birthday": "1980-01-01",
+                "gender": true,
+                "city_id": 1,
+                "region_id": 1,
+                "device_type": 1,
+                "device_token": "KaMO9OCfElmwZATsxjopJCkS6pxWQlb_",
+                "promo_code": "А52-455"
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1,
+            "data": {
+                "authorization": "jopJCkS6pxWQlb_KaMO9OCfElmwZATsx"
+            }
+        }
+        
+## Get all available settings list [/users/all-available-settings]
+
+### Get all available settings list [GET]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
++ Response 200 (application/json)
+
+        {
+          "status": 1,
+          "data": {
+            "news": [
+              {
+                "setting_type": "news_gift",
+                "label": "Подарки"
+              },
+              {
+                "setting_type": "news_adversitement",
+                "label": "Объявления"
+              },
+              {
+                "setting_type": "news_post",
+                "label": "Статьи"
+              }
+            ],
+            "push": [
+              {
+                "setting_type": "push_general_notifications",
+                "label": "Пуш уведомления"
+              }
+            ]
+          }
+        }
+        
+## Saving user settings [/users/save-settings]
+
+### Saving user settings [POST]
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
+    + Body
+
+            {
+                "settings": [
+                    "news_gift": 0,
+                    "news_post": 1,
+                ]
+            }
+
++ Response 200 (application/json)
+
+        {
+            "status": 1
+        }
        
 ## Get all events [/events]
 
@@ -1546,7 +1752,7 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         
 ## Add member to the user [/users/add-member]
 
-### Register new user [POST]
+### Add member to the user [POST]
 
     + phone (String) - required
     + name (String) - required
@@ -1561,12 +1767,9 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                 
     + city_id (Integer) - required
     + region_id (Integer) - optional
+    + promo_code (String) - optional
 
 + Request (application/json)
-
-    + Headers
-    
-            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
 
     + Body
 
@@ -1576,7 +1779,8 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
                 "birthday": "1980-01-01",
                 "gender": true,
                 "city_id": 1,
-                "region_id": 1
+                "region_id": 1,
+                "promo_code": ""
             }
 
 + Response 200 (application/json)
@@ -1623,74 +1827,6 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
             "data": {
                 "authorization": "jopJCkS6pxWQlb_KaMO9OCfElmwZATsx"
             }
-        }
-
-## User Registration [/users/register]
-
-### Register new user [POST]
-
-    + phone (String) - required
-    + name (String) - required
-    + birthday (String) - required
-    
-            yyyy-mm-dd
-    
-    + gender (Bool) - required
-    
-            female - 0
-            male - 1
-                
-    + city_id (Integer) - required
-    + region_id (Integer) - optional
-    + device_type (Integer) - required (1-Android,2-iOS)
-    + device_token (String) - required
-
-+ Request (application/json)
-
-    + Headers
-    
-            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
-
-    + Body
-
-            {
-                "phone": "+380681234567",
-                "name": "New User",
-                "birthday": "1980-01-01",
-                "gender": true,
-                "city_id": 1,
-                "region_id": 1,
-                "device_type": 1,
-                "device_token": "KaMO9OCfElmwZATsxjopJCkS6pxWQlb_"
-            }
-
-+ Response 200 (application/json)
-
-        {
-            "status": 1
-        }
-        
-## User Sign in [/users/sign-in]
-        
-### User Sign in [POST]
-
-    Response is_registered:
-        + true - user exists, SMS was sended
-        + false - user not exists, must be registered now?
-
-+ Request (application/json)
-
-        {
-            "phone": "+994507505555"
-        }
-
-+ Response 200 (application/json)
-
-        {
-            "status": 1,
-            "data": {
-                "is_registered": true,
-           }
         }
         
 ## Users Collection [/users]

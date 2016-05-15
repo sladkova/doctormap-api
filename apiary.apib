@@ -12,7 +12,7 @@ http://doctormap.dragan.com.ua/
         + /users/check-sms (http://prnt.sc/b3i28a)
         + /users/check-promo (http://prnt.sc/b3i28a)
         + /users/confirm (http://prnt.sc/b3i28a)
-        - /users/reset-login (http://prnt.sc/b3i28a)
+        + /users/reset-login (http://prnt.sc/b3i28a)
         + /users/register (http://prnt.sc/b3i28a)
         + /gifts (http://prnt.sc/awjejh)
         + /events (http://prnt.sc/awjh8y)
@@ -45,6 +45,24 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         1 - success
         2 - general error
         3 - access
+        
+## Reset user login (deletes user) [/users/reset-login]
+        
+### Reset user login (deletes user) [POST]
+
+    + Authorizatioin header (String) - required
+
++ Request (application/json)
+
+    + Headers
+    
+            Authorization: jopJCkS6pxWQlb_KaMO9OCfElmwZATsx
+
++ Response 200 (application/json)
+
+        {
+            "status": 1
+        }
         
 ## Request unlmited package [/users/request-unlimited-package]
 
@@ -79,8 +97,7 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
         {
             "status": 1,
             "data": {
-                "is_registered": true,
-                "need_check_sms": false
+                "is_registered": true
             }
         }
         
@@ -104,6 +121,7 @@ http://api.doctormap.az/v1/ - це заглушка, в майбутньому �
             "status": 1,
             "data": {
                 "is_valid": true,
+                "is_confirmed": true,
                 "need_enter_promo": false,
                 "authorization": "jopJCkS6pxWQlb_KaMO9OCfElmwZATsx"
             }
